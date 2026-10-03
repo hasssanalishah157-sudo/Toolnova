@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Free BMI Calculator by ToolNova. Calculate your Body Mass Index online using your weight and height and understand your BMI result.">
+
+<meta name="robots"
+content="index, follow">
+
+<title>BMI Calculator - Calculate Your Body Mass Index | ToolNova</title>
+
+<link rel="icon"
+type="image/png"
+href="../assets/favicon.png">
+
+<link rel="stylesheet"
+href="../style.css">
+
+<style>
+
+.tool-page {
+    min-height: 75vh;
+    padding: 70px 0;
+    background: #f8fafc;
+}
+
+.calculator {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.calculator h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.calculator p {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #635bff;
+}
+
+.calculate-btn {
+    width: 100%;
+    border: none;
+    background: #635bff;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.calculate-btn:hover {
+    background: #5148e5;
+}
+
+.result {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #f0efff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.result strong {
+    display: block;
+    font-size: 35px;
+    color: #635bff;
+    margin: 8px 0;
+}
+
+#category {
+    font-weight: 700;
+    color: #374151;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #635bff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+
+/* SEO CONTENT */
+
+.tool-content {
+    max-width: 900px;
+    margin: 50px auto 0;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.tool-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.tool-content h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.tool-content p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.tool-content ul {
+    color: #4b5563;
+    line-height: 1.8;
+    padding-left: 22px;
+}
+
+
+/* BMI TABLE */
+
+.bmi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bmi-table th,
+.bmi-table td {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.bmi-table th {
+    font-weight: 700;
+}
+
+
+/* RELATED TOOLS */
+
+.related-tools {
+    max-width: 900px;
+    margin: 30px auto 0;
+    padding: 30px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+}
+
+.related-tools h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.related-tools ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.related-tools li a {
+    display: block;
+    padding: 13px 16px;
+    background: #f8fafc;
+    border-radius: 10px;
+    color: #635bff;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+}
+
+.related-tools li a:hover {
+    background: #f0efff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .calculator {
+        padding: 25px;
+    }
+
+    .calculator h1 {
+        font-size: 30px;
+    }
+
+    .tool-content {
+        padding: 25px;
+    }
+
+    .related-tools {
+        padding: 25px;
+    }
+
+    .related-tools ul {
+        grid-template-columns: 1fr;
+    }
+
+    .bmi-table {
+        font-size: 14px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container nav">
+
+<a href="../index.html"
+class="logo">
+
+Tool<span>Nova</span>
+
+</a>
+
+<nav>
+
+<a href="../index.html">
+Home
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<main class="tool-page">
+
+<div class="container">
+
+<!-- BMI CALCULATOR -->
+
+<div class="calculator">
+
+<h1>BMI Calculator</h1>
+
+<p>
+Calculate your Body Mass Index using your height and weight.
+</p>
+
+<div class="input-group">
+
+<label for="weight">
+Weight (kg)
+</label>
+
+<input
+type="number"
+id="weight"
+placeholder="Example: 70"
+min="1"
+step="0.1"
+
+>
+
+</div>
+
+<div class="input-group">
+
+<label for="height">
+Height (cm)
+</label>
+
+<input
+type="number"
+id="height"
+placeholder="Example: 175"
+min="1"
+step="0.1"
+
+>
+
+</div>
+
+<button
+class="calculate-btn"
+onclick="calculateBMI()">
+
+Calculate BMI
+
+</button>
+
+<div
+class="result"
+id="result"
+aria-live="polite">
+
+Your BMI:
+
+<strong id="bmiResult">
+0
+</strong>
+
+<div id="category"></div>
+
+</div>
+
+<a
+href="../index.html"
+class="back">
+
+← Back to all tools
+
+</a>
+
+</div>
+
+<!-- SEO CONTENT -->
+
+<section class="tool-content">
+
+<h2>
+Free Online BMI Calculator
+</h2>
+
+<p>
+ToolNova's free BMI Calculator helps you calculate your Body Mass Index using your weight and height. Enter your measurements above and get your BMI result instantly.
+</p>
+
+<h3>
+What Is BMI?
+</h3>
+
+<p>
+BMI stands for Body Mass Index. It is a commonly used screening measurement based on a person's weight in relation to their height. BMI can provide a general indication of whether a person's weight falls within a particular range.
+</p>
+
+<h3>
+How to Use This BMI Calculator</h3>
+
+<p>
+Enter your weight in kilograms and your height in centimeters. Then click the Calculate BMI button. The calculator converts your height to meters and calculates your BMI automatically.
+</p>
+
+<h3>
+BMI Formula
+</h3>
+
+<p>
+BMI is calculated by dividing body weight in kilograms by height in meters squared.
+</p>
+
+<p>
+<strong>
+BMI = Weight (kg) ÷ Height (m)²
+</strong>
+</p>
+
+<h3>
+General BMI Categories for Adults
+</h3>
+
+<table class="bmi-table">
+
+<thead>
+
+<tr>
+<th>BMI Range</th>
+<th>Category</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Below 18.5</td>
+<td>Underweight</td>
+</tr>
+
+<tr>
+<td>18.5 – 24.9</td>
+<td>Normal weight</td>
+</tr>
+
+<tr>
+<td>25.0 – 29.9</td>
+<td>Overweight</td>
+</tr>
+
+<tr>
+<td>30.0 or higher</td>
+<td>Obesity</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<h3>
+Important Information
+</h3>
+
+<p>
+BMI is a screening tool and does not directly measure body fat or overall health. Factors such as muscle mass, age and other individual characteristics can affect how BMI should be interpreted.
+</p>
+
+<p>
+For health-related decisions, consider discussing your individual circumstances with a qualified healthcare professional.
+</p>
+
+</section>
+
+<!-- RELATED TOOLS -->
+
+<section class="related-tools">
+
+<h2>
+Related Tools
+</h2>
+
+<ul>
+
+<li>
+<a href="percentage-calculator.html">
+Percentage Calculator
+</a>
+</li>
+
+<li>
+<a href="word-counter.html">
+Word Counter
+</a>
+</li>
+
+<li>
+<a href="qr-code-generator.html">
+QR Code Generator
+</a>
+</li>
+
+<li>
+<a href="password-generator.html">
+Password Generator
+</a>
+</li>
+
+<li>
+<a href="age.html">
+Age Calculator
+</a>
+</li>
+
+<li>
+<a href="case-converter.html">
+Case Converter
+</a>
+</li>
+
+<li>
+<a href="discount.html">
+Discount Calculator
+</a>
+</li>
+
+<li>
+<a href="json-formatter.html">
+JSON Formatter
+</a>
+</li>
+
+</ul>
+
+</section>
+
+</div>
+
+</main>
+
+<script>
+
+function calculateBMI() {
+
+    const weight =
+        parseFloat(
+            document.getElementById("weight").value
+        );
+
+
+    const height =
+        parseFloat(
+            document.getElementById("height").value
+        );
+
+
+    if (
+        isNaN(weight) ||
+        isNaN(height) ||
+        weight <= 0 ||
+        height <= 0
+    ) {
+
+        alert(
+            "Please enter valid weight and height."
+        );
+
+        return;
+
+    }
+
+
+    const heightMeters =
+        height / 100;
+
+
+    const bmi =
+        weight /
+        (heightMeters * heightMeters);
+
+
+    let category;
+
+
+    if (bmi < 18.5) {
+
+        category = "Underweight";
+
+    }
+    else if (bmi < 25) {
+
+        category = "Normal weight";
+
+    }
+    else if (bmi < 30) {
+
+        category = "Overweight";
+
+    }
+    else {
+
+        category = "Obesity";
+
+    }
+
+
+    document.getElementById(
+        "bmiResult"
+    ).textContent =
+        bmi.toFixed(1);
+
+
+    document.getElementById(
+        "category"
+    ).textContent =
+        category;
+
+
+    document.getElementById(
+        "result"
+    ).style.display =
+        "block";
+
+}
+
+</script>
+
+</body>
+
+</html>

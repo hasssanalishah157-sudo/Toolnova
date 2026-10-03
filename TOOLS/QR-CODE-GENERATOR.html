@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free QR Code Generator by ToolNova. Create QR codes from text, links and URLs instantly and download your QR code as a PNG image.">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <title>QR Code Generator - Create QR Codes Online | ToolNova</title>
+
+    <link rel="icon"
+          type="image/png"
+          href="../assets/favicon.png">
+
+    <link rel="stylesheet"
+          href="../style.css">
+
+
+    <style>
+
+        /* ================= TOOL PAGE ================= */
+
+        .tool-page {
+            min-height: 75vh;
+            padding: 70px 0;
+            background: #f8fafc;
+        }
+
+
+        /* ================= TOOL BOX ================= */
+
+        .tool-box {
+            max-width: 700px;
+            margin: 0 auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.06);
+        }
+
+
+        .tool-box label {
+            display: block;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+
+        .tool-box textarea {
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            resize: vertical;
+
+            outline: none;
+
+            box-sizing: border-box;
+        }
+
+
+        .tool-box textarea:focus {
+            border-color: #635bff;
+        }
+
+
+        /* ================= BUTTONS ================= */
+
+        .tool-buttons {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 18px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .tool-buttons button,
+        #downloadButton {
+
+            border: none;
+
+            background: #635bff;
+
+            color: white;
+
+            padding: 13px 20px;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .tool-buttons button:hover,
+        #downloadButton:hover {
+
+            background: #5148e5;
+        }
+
+
+        /* ================= QR CONTAINER ================= */
+
+        #qrContainer {
+
+            margin-top: 30px;
+
+            min-height: 240px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            background: #f8fafc;
+
+            border: 1px dashed #d1d5db;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            box-sizing: border-box;
+        }
+
+
+        #qrContainer img {
+
+            max-width: 100%;
+
+            height: auto;
+
+            padding: 10px;
+
+            background: white;
+
+        }
+
+
+        #downloadButton {
+
+            display: none;
+
+            margin-top: 18px;
+        }
+
+
+        /* ================= BACK LINK ================= */
+
+        .back-link {
+
+            max-width: 700px;
+
+            margin: 25px auto 0;
+        }
+
+
+        .back-link a {
+
+            color: #635bff;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        /* ================= SEO CONTENT ================= */
+
+        .seo-content {
+
+            max-width: 800px;
+
+            margin: 50px auto 0;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .seo-content h2 {
+
+            margin-bottom: 12px;
+        }
+
+
+        .seo-content p {
+
+            color: #555;
+
+            line-height: 1.7;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* ================= RELATED TOOLS ================= */
+
+        .related-tools {
+
+            max-width: 800px;
+
+            margin: 30px auto 0;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .related-tools h2 {
+
+            margin-bottom: 20px;
+        }
+
+
+        .related-tools-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 12px;
+        }
+
+
+        .related-tools a {
+
+            display: block;
+
+            padding: 12px 15px;
+
+            background: #f5f3ff;
+
+            color: #635bff;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+
+        .related-tools a:hover {
+
+            background: #635bff;
+
+            color: white;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            .tool-page {
+
+                padding: 40px 15px;
+
+            }
+
+
+            .tool-box {
+
+                padding: 25px 20px;
+
+            }
+
+
+            .section-title h1 {
+
+                font-size: 28px;
+
+            }
+
+
+            .tool-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .tool-buttons button {
+
+                width: 100%;
+
+            }
+
+
+            .seo-content,
+            .related-tools {
+
+                padding: 22px 18px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a href="../index.html" class="logo">
+
+            Tool<span>Nova</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html#tools">
+                Tools
+            </a>
+
+            <a href="../pages/about.html">
+                About
+            </a>
+
+            <a href="../pages/contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+<section class="tool-page">
+
+    <div class="container">
+
+
+        <!-- ================= TITLE ================= -->
+
+        <div class="section-title">
+
+            <p>
+                QR TOOL
+            </p>
+
+            <h1>
+                QR Code Generator
+            </h1>
+
+            <span>
+                Create QR codes from text, links and URLs instantly.
+            </span>
+
+        </div>
+
+
+
+        <!-- ================= QR TOOL ================= -->
+
+        <div class="tool-box">
+
+
+            <!-- INPUT -->
+
+            <label for="qrText">
+                Enter Text or URL
+            </label>
+
+
+            <textarea
+                id="qrText"
+                rows="5"
+                placeholder="Enter your text or paste a URL here..."
+            ></textarea>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="tool-buttons">
+
+                <button onclick="generateQR()">
+                    Generate QR Code
+                </button>
+
+                <button onclick="clearQR()">
+                    Clear
+                </button>
+
+            </div>
+
+
+
+            <!-- QR CODE -->
+
+            <div id="qrContainer">
+
+                <p>
+                    Your QR code will appear here.
+                </p>
+
+            </div>
+
+
+
+            <!-- DOWNLOAD -->
+
+            <button
+                id="downloadButton"
+                onclick="downloadQR()"
+            >
+
+                Download QR Code
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ================= BACK ================= -->
+
+        <div class="back-link">
+
+            <a href="../index.html#tools">
+
+                ← Back to Tools
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ================= SEO CONTENT ================= -->
+
+        <div class="seo-content">
+
+            <h2>
+                What is a QR Code Generator?
+            </h2>
+
+            <p>
+                A QR Code Generator is an online tool that converts text,
+                website links, URLs and other information into a scannable
+                QR code.
+            </p>
+
+
+            <h2>
+                How to Create a QR Code
+            </h2>
+
+            <p>
+                Enter your text or website URL in the box above and click
+                the Generate QR Code button. Your QR code will appear
+                instantly.
+            </p>
+
+
+            <p>
+                You can then download the generated QR code as a PNG image
+                and use it on websites, documents, posters, business cards
+                and other materials.
+            </p>
+
+
+            <h2>
+                What Can You Use a QR Code For?
+            </h2>
+
+            <p>
+                QR codes can be used for website links, contact information,
+                text messages, business information, product pages and
+                many other everyday purposes.
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= RELATED TOOLS ================= -->
+
+        <div class="related-tools">
+
+            <h2>
+                Related Tools
+            </h2>
+
+
+            <div class="related-tools-grid">
+
+                <a href="percentage-calculator.html">
+                    Percentage Calculator
+                </a>
+
+                <a href="bmi-calculator.html">
+                    BMI Calculator
+                </a>
+
+                <a href="word-counter.html">
+                    Word Counter
+                </a>
+
+                <a href="password-generator.html">
+                    Password Generator
+                </a>
+
+                <a href="age.html">
+                    Age Calculator
+                </a>
+
+                <a href="case-converter.html">
+                    Case Converter
+                </a>
+
+                <a href="discount.html">
+                    Discount Calculator
+                </a>
+
+                <a href="json-formatter.html">
+                    JSON Formatter
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer">
+
+
+        <div>
+
+            <h2>
+                ToolNova
+            </h2>
+
+            <p>
+                Free and useful online tools for everyone.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="../pages/about.html">
+                About
+            </a>
+
+            <a href="../pages/contact.html">
+                Contact
+            </a>
+
+            <a href="../pages/privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="../pages/terms.html">
+                Terms
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 ToolNova. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= QR LIBRARY ================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function generateQR() {
+
+    const text =
+        document.getElementById("qrText").value.trim();
+
+
+    const container =
+        document.getElementById("qrContainer");
+
+
+    const downloadButton =
+        document.getElementById("downloadButton");
+
+
+    if (text === "") {
+
+        container.innerHTML =
+            "<p>Please enter some text or a URL first.</p>";
+
+        downloadButton.style.display = "none";
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    new QRCode(container, {
+
+        text: text,
+
+        width: 220,
+
+        height: 220,
+
+        colorDark: "#000000",
+
+        colorLight: "#ffffff",
+
+        correctLevel: QRCode.CorrectLevel.H
+
+    });
+
+
+    downloadButton.style.display = "inline-block";
+
+}
+
+
+
+function clearQR() {
+
+    document.getElementById("qrText").value = "";
+
+
+    document.getElementById("qrContainer").innerHTML =
+        "<p>Your QR code will appear here.</p>";
+
+
+    document.getElementById("downloadButton")
+        .style.display = "none";
+
+}
+
+
+
+function downloadQR() {
+
+    const qrImage =
+        document.querySelector("#qrContainer img");
+
+
+    if (!qrImage) {
+
+        return;
+
+    }
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href =
+        qrImage.src;
+
+
+    link.download =
+        "ToolNova-QR-Code.png";
+
+
+    link.click();
+
+}
+
+</script>
+
+
+</body>
+
+</html>

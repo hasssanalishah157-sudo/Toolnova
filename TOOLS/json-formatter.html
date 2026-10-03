@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Free JSON Formatter and Validator. Format, validate and minify JSON online instantly with ToolNova.">
+
+<meta name="robots"
+content="index, follow">
+
+<title>JSON Formatter - Format & Validate JSON Online | ToolNova</title>
+
+<link rel="icon"
+type="image/png"
+href="../assets/favicon.png">
+
+<link rel="stylesheet"
+href="../style.css">
+
+
+<style>
+
+.tool-page {
+    min-height: 75vh;
+    padding: 70px 0;
+    background: #f8fafc;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title p {
+    color: #635bff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.section-title h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-title span {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.tool-box {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.tool-box label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.tool-box textarea {
+    width: 100%;
+    min-height: 280px;
+    padding: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: monospace;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+}
+
+.tool-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.tool-buttons button {
+    border: none;
+    background: #635bff;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tool-buttons button:hover {
+    opacity: 0.9;
+}
+
+.tool-buttons button:last-child {
+    background: #ef4444;
+}
+
+#jsonResult {
+    margin-top: 25px;
+    padding: 20px;
+    min-height: 80px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: monospace;
+    line-height: 1.6;
+}
+
+.back-link {
+    max-width: 800px;
+    margin: 25px auto 0;
+}
+
+.back-link a {
+    color: #635bff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/* SEO INFORMATION */
+
+.info-section {
+    max-width: 900px;
+    margin: 50px auto 0;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.info-section h2 {
+    margin-bottom: 12px;
+}
+
+.info-section p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.info-section ul {
+    padding-left: 20px;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+
+/* RELATED TOOLS */
+
+.related-tools {
+    max-width: 900px;
+    margin: 30px auto 0;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.related-tools h2 {
+    margin-bottom: 18px;
+}
+
+.related-tools a {
+    display: inline-block;
+    margin: 6px;
+    padding: 10px 15px;
+    background: #f0efff;
+    color: #635bff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.related-tools a:hover {
+    background: #e5e7eb;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .tool-page {
+        padding: 40px 15px;
+    }
+
+    .section-title h1 {
+        font-size: 29px;
+    }
+
+    .tool-box {
+        padding: 22px;
+    }
+
+    .tool-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .info-section,
+    .related-tools {
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="container nav">
+
+<a href="../index.html"
+class="logo">
+
+Tool<span>Nova</span>
+
+</a>
+
+
+<nav>
+
+<a href="../index.html#tools">
+Tools
+</a>
+
+<a href="../pages/about.html">
+About
+</a>
+
+<a href="../pages/contact.html">
+Contact
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+<section class="tool-page">
+
+<div class="container">
+
+
+<div class="section-title">
+
+<p>
+DEVELOPER TOOL
+</p>
+
+<h1>
+JSON Formatter
+</h1>
+
+<span>
+Format, validate and minify JSON instantly.
+</span>
+
+</div>
+
+
+
+<!-- ================= JSON TOOL ================= -->
+
+<div class="tool-box">
+
+
+<label for="jsonInput">
+
+Enter JSON
+
+</label>
+
+
+<textarea
+id="jsonInput"
+rows="14"
+placeholder='Example: {"name":"ToolNova","free":true}'
+></textarea>
+
+
+
+<div class="tool-buttons">
+
+<button
+onclick="formatJSON()">
+
+Format JSON
+
+</button>
+
+
+<button
+onclick="validateJSON()">
+
+Validate JSON
+
+</button>
+
+
+<button
+onclick="minifyJSON()">
+
+Minify JSON
+
+</button>
+
+
+<button
+onclick="clearJSON()">
+
+Clear
+
+</button>
+
+</div>
+
+
+
+<div id="jsonResult">
+
+JSON result will appear here.
+
+</div>
+
+
+</div>
+
+
+
+<!-- BACK -->
+
+<div class="back-link">
+
+<a href="../index.html#tools">
+
+← Back to Tools
+
+</a>
+
+</div>
+
+
+
+<!-- ================= SEO CONTENT ================= -->
+
+<div class="info-section">
+
+<h2>
+What is a JSON Formatter?
+</h2>
+
+<p>
+A JSON Formatter is an online tool that organizes JSON data into a readable and structured format. It makes JSON easier to read, understand, debug and work with during web development and programming.
+</p>
+
+
+<h2>
+What is JSON?
+</h2>
+
+<p>
+JSON stands for JavaScript Object Notation. It is a lightweight data format commonly used for storing and transferring structured information between applications, websites and servers.
+</p>
+
+
+<h2>
+JSON Formatter Features
+</h2>
+
+<ul>
+
+<li>Format JSON with proper indentation.</li>
+
+<li>Validate JSON syntax instantly.</li>
+
+<li>Minify JSON to reduce unnecessary spaces.</li>
+
+<li>Identify invalid JSON using error messages.</li>
+
+<li>Clear the input and result quickly.</li>
+
+<li>Works directly in your browser.</li>
+
+<li>Free to use without an account.</li>
+
+</ul>
+
+
+<h2>
+Why Use ToolNova JSON Formatter?
+</h2>
+
+<p>
+ToolNova JSON Formatter provides a simple way to format, validate and minify JSON directly in your browser. It can be useful for developers, students and anyone working with JSON data.
+</p>
+
+</div>
+
+
+
+<!-- ================= RELATED TOOLS ================= -->
+
+<div class="related-tools">
+
+<h2>
+Related Tools
+</h2>
+
+
+<a href="percentage-calculator.html">
+Percentage Calculator
+</a>
+
+
+<a href="bmi-calculator.html">
+BMI Calculator
+</a>
+
+
+<a href="word-counter.html">
+Word Counter
+</a>
+
+
+<a href="qr-code-generator.html">
+QR Code Generator
+</a>
+
+
+<a href="password-generator.html">
+Password Generator
+</a>
+
+
+<a href="age.html">
+Age Calculator
+</a>
+
+
+<a href="case-converter.html">
+Case Converter
+</a>
+
+
+<a href="discount.html">
+Discount Calculator
+</a>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container footer">
+
+
+<div>
+
+<h2>
+ToolNova
+</h2>
+
+<p>
+Free and useful online tools for everyone.
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="../pages/about.html">
+About
+</a>
+
+<a href="../pages/contact.html">
+Contact
+</a>
+
+<a href="../pages/privacy.html">
+Privacy Policy
+</a>
+
+<a href="../pages/terms.html">
+Terms
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 ToolNova. All rights reserved.
+
+</div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+function getJSON() {
+
+const input =
+document.getElementById("jsonInput").value.trim();
+
+
+if (input === "") {
+
+throw new Error(
+"Please enter JSON first."
+);
+
+}
+
+
+return JSON.parse(input);
+
+}
+
+
+
+function formatJSON() {
+
+const result =
+document.getElementById("jsonResult");
+
+
+try {
+
+const json =
+getJSON();
+
+
+result.textContent =
+JSON.stringify(json, null, 4);
+
+
+result.style.color =
+"green";
+
+
+}
+
+catch (error) {
+
+result.textContent =
+"❌ Invalid JSON: " + error.message;
+
+
+result.style.color =
+"red";
+
+}
+
+}
+
+
+
+function validateJSON() {
+
+const result =
+document.getElementById("jsonResult");
+
+
+try {
+
+getJSON();
+
+
+result.textContent =
+"✅ Valid JSON";
+
+
+result.style.color =
+"green";
+
+
+}
+
+catch (error) {
+
+result.textContent =
+"❌ Invalid JSON: " + error.message;
+
+
+result.style.color =
+"red";
+
+}
+
+}
+
+
+
+function minifyJSON() {
+
+const result =
+document.getElementById("jsonResult");
+
+
+try {
+
+const json =
+getJSON();
+
+
+result.textContent =
+JSON.stringify(json);
+
+
+result.style.color =
+"green";
+
+
+}
+
+catch (error) {
+
+result.textContent =
+"❌ Invalid JSON: " + error.message;
+
+
+result.style.color =
+"red";
+
+}
+
+}
+
+
+
+function clearJSON() {
+
+document.getElementById("jsonInput").value =
+"";
+
+
+document.getElementById("jsonResult").textContent =
+"JSON result will appear here.";
+
+
+document.getElementById("jsonResult").style.color =
+"";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

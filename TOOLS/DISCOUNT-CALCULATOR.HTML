@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free online Discount Calculator. Calculate discount amount, sale price and final price quickly and easily with ToolNova.">
+
+    <meta name="keywords"
+          content="discount calculator, discount percentage calculator, sale price calculator, final price calculator, online discount calculator">
+
+    <meta name="author"
+          content="ToolNova">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <title>Discount- Calculator - Calculate Sale Price | ToolNova</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        header {
+            background: #111827;
+            padding: 18px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #4ade80;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #4ade80;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 55px 20px 30px;
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+            font-size: 38px;
+        }
+
+        .page-header p {
+            color: #666;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .calculator-box {
+            background: white;
+            max-width: 550px;
+            margin: 25px auto 50px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #4ade80;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #111827;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1f2937;
+        }
+
+        .clear-btn {
+            margin-top: 10px;
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        .clear-btn:hover {
+            background: #d1d5db;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0fdf4;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+        }
+
+        .result p {
+            margin: 8px 0;
+            font-size: 17px;
+        }
+
+        .info-section {
+            background: white;
+            padding: 35px;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .related-tools {
+            background: white;
+            padding: 30px;
+            margin-bottom: 50px;
+            border-radius: 15px;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .related-grid a {
+            display: block;
+            padding: 13px;
+            text-align: center;
+            background: #f3f4f6;
+            color: #111827;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .related-grid a:hover {
+            background: #e5e7eb;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            color: #4ade80;
+        }
+
+        @media (max-width: 700px) {
+
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .page-header h1 {
+                font-size: 30px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .info-section {
+                padding: 22px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="container nav">
+
+        <a href="../index.html" class="logo">
+            Tool<span>Nova</span>
+        </a>
+
+        <nav>
+
+            <a href="../index.html#tools">
+                Tools
+            </a>
+
+            <a href="../pages/about.html">
+                About
+            </a>
+
+            <a href="../pages/contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= PAGE HEADER ================= -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+            Discount Calculator
+        </h1>
+
+        <p>
+            Calculate discount amount, sale price and final price
+            quickly and easily.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CALCULATOR ================= -->
+
+<div class="container">
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+
+            <label for="originalPrice">
+                Original Price
+            </label>
+
+            <input
+                type="number"
+                id="originalPrice"
+                placeholder="Enter original price"
+                min="0"
+                step="any"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="discountPercent">
+                Discount Percentage (%)
+            </label>
+
+            <input
+                type="number"
+                id="discountPercent"
+                placeholder="Enter discount percentage"
+                min="0"
+                max="100"
+                step="any"
+            >
+
+        </div>
+
+
+        <button onclick="calculateDiscount()">
+            Calculate Discount
+        </button>
+
+
+        <button class="clear-btn"
+                onclick="clearCalculator()">
+            Clear
+        </button>
+
+
+        <!-- RESULT -->
+
+        <div class="result" id="result">
+
+            <h2>
+                Result
+            </h2>
+
+            <p>
+                Discount Amount:
+                <strong id="discountAmount">0</strong>
+            </p>
+
+            <p>
+                Final Price:
+                <strong id="finalPrice">0</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= SEO CONTENT ================= -->
+
+<section class="container">
+
+    <div class="info-section">
+
+        <h2>
+            What is a Discount Calculator?
+        </h2>
+
+        <p>
+            A Discount Calculator helps you find the amount of money
+            saved after applying a percentage discount to an original
+            price. It also calculates the final sale price.
+        </p>
+
+
+        <h2>
+            How to Calculate a Discount
+        </h2>
+
+        <p>
+            Enter the original price and the discount percentage.
+            The calculator automatically calculates the discount
+            amount and subtracts it from the original price.
+        </p>
+
+
+        <h2>
+            Discount Formula
+        </h2>
+
+        <p>
+            Discount Amount = Original Price × Discount Percentage ÷ 100
+        </p>
+
+        <p>
+            Final Price = Original Price − Discount Amount
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RELATED TOOLS ================= -->
+
+<section class="container">
+
+    <div class="related-tools">
+
+        <h2>
+            Related Tools
+        </h2>
+
+
+        <div class="related-grid">
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="bmi-calculator.html">
+                BMI Calculator
+            </a>
+
+            <a href="word-counter.html">
+                Word Counter
+            </a>
+
+            <a href="qr-code-generator.html">
+                QR Code Generator
+            </a>
+
+            <a href="password-generator.html">
+                Password Generator
+            </a>
+
+            <a href="age-calculator.html">
+                Age Calculator
+            </a>
+
+            <a href="case-converter.html">
+                Case Converter
+            </a>
+
+            <a href="json-formatter.html">
+                JSON Formatter
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            © 2026 ToolNova. All rights reserved.
+        </p>
+
+        <p>
+
+            <a href="../pages/about.html">
+                About
+            </a>
+
+            |
+
+            <a href="../pages/contact.html">
+                Contact
+            </a>
+
+            |
+
+            <a href="../pages/terms.html">
+                Terms & Conditions
+            </a>
+
+            |
+
+            <a href="../pages/privacy.html">
+                Privacy Policy
+            </a>
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    function calculateDiscount() {
+
+        const originalPrice =
+            parseFloat(document.getElementById("originalPrice").value);
+
+        const discountPercent =
+            parseFloat(document.getElementById("discountPercent").value);
+
+
+        if (
+            isNaN(originalPrice) ||
+            isNaN(discountPercent) ||
+            originalPrice < 0 ||
+            discountPercent < 0 ||
+            discountPercent > 100
+        ) {
+
+            alert(
+                "Please enter a valid price and discount percentage between 0 and 100."
+            );
+
+            return;
+
+        }
+
+
+        const discountAmount =
+            originalPrice * discountPercent / 100;
+
+
+        const finalPrice =
+            originalPrice - discountAmount;
+
+
+        document.getElementById("discountAmount").textContent =
+            discountAmount.toFixed(2);
+
+
+        document.getElementById("finalPrice").textContent =
+            finalPrice.toFixed(2);
+
+
+        document.getElementById("result").style.display =
+            "block";
+
+    }
+
+
+    function clearCalculator() {
+
+        document.getElementById("originalPrice").value = "";
+
+        document.getElementById("discountPercent").value = "";
+
+        document.getElementById("discountAmount").textContent = "0";
+
+        document.getElementById("finalPrice").textContent = "0";
+
+        document.getElementById("result").style.display = "none";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

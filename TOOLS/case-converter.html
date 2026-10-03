@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Free online Case Converter. Convert text to uppercase, lowercase, title case, sentence case and more with ToolNova.">
+
+<meta name="robots"
+content="index, follow">
+
+<title>Case Converter - Convert Text Case Online | ToolNova</title>
+
+<link rel="icon"
+type="image/png"
+href="../assets/favicon.png">
+
+<link rel="stylesheet"
+href="../style.css">
+
+
+<style>
+
+.tool-page {
+    min-height: 75vh;
+    padding: 70px 0;
+    background: #f8fafc;
+}
+
+.calculator {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.calculator h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.calculator > p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.text-area {
+    width: 100%;
+    min-height: 220px;
+    padding: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.convert-btn {
+    border: none;
+    background: #635bff;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.convert-btn:hover {
+    opacity: 0.9;
+}
+
+.clear-btn {
+    background: #ef4444;
+}
+
+.result-box {
+    margin-top: 25px;
+}
+
+.result-box h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.output-area {
+    width: 100%;
+    min-height: 180px;
+    padding: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background: #f8fafc;
+}
+
+.copy-btn {
+    margin-top: 12px;
+    width: 100%;
+    border: none;
+    background: #111827;
+    color: white;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #635bff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.info-section {
+    max-width: 900px;
+    margin: 50px auto 0;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.info-section h2 {
+    margin-bottom: 12px;
+}
+
+.info-section p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.info-section ul {
+    padding-left: 20px;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+.related-tools {
+    max-width: 900px;
+    margin: 30px auto 0;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.related-tools h2 {
+    margin-bottom: 18px;
+}
+
+.related-tools a {
+    display: inline-block;
+    margin: 6px;
+    padding: 10px 15px;
+    background: #f0efff;
+    color: #635bff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.related-tools a:hover {
+    background: #e5e7eb;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .tool-page {
+        padding: 40px 15px;
+    }
+
+    .calculator {
+        padding: 22px;
+    }
+
+    .calculator h1 {
+        font-size: 28px;
+    }
+
+    .button-group {
+        grid-template-columns: 1fr;
+    }
+
+    .info-section,
+    .related-tools {
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="container nav">
+
+<a href="../index.html"
+class="logo">
+
+Tool<span>Nova</span>
+
+</a>
+
+<nav>
+
+<a href="../index.html">
+Home
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main class="tool-page">
+
+<div class="container">
+
+
+<div class="calculator">
+
+<h1>Case Converter</h1>
+
+<p>
+Convert your text to uppercase, lowercase, title case, sentence case and more.
+</p>
+
+
+<textarea
+id="inputText"
+class="text-area"
+placeholder="Type or paste your text here..."
+></textarea>
+
+
+<div class="button-group">
+
+<button
+class="convert-btn"
+onclick="convertUppercase()">
+
+UPPERCASE
+
+</button>
+
+
+<button
+class="convert-btn"
+onclick="convertLowercase()">
+
+lowercase
+
+</button>
+
+
+<button
+class="convert-btn"
+onclick="convertTitleCase()">
+
+Title Case
+
+</button>
+
+
+<button
+class="convert-btn"
+onclick="convertSentenceCase()">
+
+Sentence Case
+
+</button>
+
+
+<button
+class="convert-btn"
+onclick="convertCapitalizeWords()">
+
+Capitalize Words
+
+</button>
+
+
+<button
+class="convert-btn clear-btn"
+onclick="clearText()">
+
+Clear
+
+</button>
+
+</div>
+
+
+<div class="result-box">
+
+<h2>Converted Text</h2>
+
+<textarea
+id="outputText"
+class="output-area"
+readonly
+placeholder="Your converted text will appear here..."
+></textarea>
+
+
+<button
+class="copy-btn"
+onclick="copyText()">
+
+Copy Text
+
+</button>
+
+</div>
+
+
+<a
+href="../index.html"
+class="back">
+
+← Back to all tools
+
+</a>
+
+</div>
+
+
+<div class="info-section">
+
+<h2>What is a Case Converter?</h2>
+
+<p>
+A Case Converter is an online text formatting tool that changes the capitalization of text without requiring you to type it again.
+It can quickly convert text into uppercase, lowercase, title case and sentence case.
+</p>
+
+
+<h2>Case Converter Features</h2>
+
+<ul>
+
+<li>Convert text to UPPERCASE.</li>
+
+<li>Convert text to lowercase.</li>
+
+<li>Convert text to Title Case.</li>
+
+<li>Convert text to Sentence Case.</li>
+
+<li>Capitalize the first letter of every word.</li>
+
+<li>Copy converted text with one click.</li>
+
+<li>Works directly in your browser.</li>
+
+</ul>
+
+
+<h2>Why Use ToolNova Case Converter?</h2>
+
+<p>
+ToolNova Case Converter is free and easy to use. You can paste text from documents, websites, notes or social media and change its capitalization instantly.
+No account or installation is required.
+</p>
+
+</div>
+
+
+<div class="related-tools">
+
+<h2>Related Tools</h2>
+
+
+<a href="percentage-calculator.html">
+Percentage Calculator
+</a>
+
+
+<a href="bmi-calculator.html">
+BMI Calculator
+</a>
+
+
+<a href="word-counter.html">
+Word Counter
+</a>
+
+
+<a href="qr-code-generator.html">
+QR Code Generator
+</a>
+
+
+<a href="password-generator.html">
+Password Generator
+</a>
+
+
+<a href="age.html">
+Age Calculator
+</a>
+
+
+<a href="discount.html">
+Discount Calculator
+</a>
+
+
+<a href="json-formatter.html">
+JSON Formatter
+</a>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+<script>
+
+
+function convertUppercase() {
+
+    const text =
+        document.getElementById("inputText").value;
+
+    document.getElementById("outputText").value =
+        text.toUpperCase();
+
+}
+
+
+function convertLowercase() {
+
+    const text =
+        document.getElementById("inputText").value;
+
+    document.getElementById("outputText").value =
+        text.toLowerCase();
+
+}
+
+
+function convertTitleCase() {
+
+    const text =
+        document.getElementById("inputText").value;
+
+    const result =
+        text.toLowerCase().replace(/\b\w/g, function(letter) {
+
+            return letter.toUpperCase();
+
+        });
+
+    document.getElementById("outputText").value =
+        result;
+
+}
+
+
+function convertSentenceCase() {
+
+    const text =
+        document.getElementById("inputText").value;
+
+    const result =
+        text.toLowerCase().replace(
+            /(^\s*\w|[.!?]\s*\w)/g,
+            function(letter) {
+
+                return letter.toUpperCase();
+
+            }
+        );
+
+    document.getElementById("outputText").value =
+        result;
+
+}
+
+
+function convertCapitalizeWords() {
+
+    const text =
+        document.getElementById("inputText").value;
+
+    const result =
+        text.toLowerCase().replace(/\b\w/g, function(letter) {
+
+            return letter.toUpperCase();
+
+        });
+
+    document.getElementById("outputText").value =
+        result;
+
+}
+
+
+function clearText() {
+
+    document.getElementById("inputText").value = "";
+
+    document.getElementById("outputText").value = "";
+
+}
+
+
+function copyText() {
+
+    const output =
+        document.getElementById("outputText");
+
+    if (output.value.trim() === "") {
+
+        alert("There is no text to copy.");
+
+        return;
+
+    }
+
+    navigator.clipboard.writeText(output.value)
+        .then(function() {
+
+            alert("Text copied successfully!");
+
+        })
+        .catch(function() {
+
+            output.select();
+
+            document.execCommand("copy");
+
+            alert("Text copied successfully!");
+
+        });
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free online word counter. Count words, characters, sentences, paragraphs and reading time instantly.">
+
+    <title>Word Counter - ToolNova</title>
+
+    <link rel="stylesheet"
+          href="../style.css">
+
+    <style>
+
+        .tool-page {
+            min-height: 75vh;
+            padding: 70px 0;
+            background: #f8fafc;
+        }
+
+        .counter {
+            max-width: 800px;
+            margin: auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .counter h1 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .counter-intro {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        textarea {
+            width: 100%;
+
+            min-height: 280px;
+
+            padding: 18px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 12px;
+
+            resize: vertical;
+
+            font-size: 16px;
+
+            font-family: Arial, sans-serif;
+
+            line-height: 1.6;
+
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #635bff;
+
+            box-shadow:
+                0 0 0 3px rgba(99,91,255,0.10);
+        }
+
+        .clear-btn {
+            margin-top: 15px;
+
+            padding: 11px 20px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #111827;
+
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background: #374151;
+        }
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .stat {
+            background: #f0efff;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+
+            font-size: 27px;
+
+            color: #635bff;
+
+            margin-bottom: 4px;
+        }
+
+        .stat span {
+            color: #555;
+
+            font-size: 14px;
+        }
+
+        .reading-time {
+            margin-top: 20px;
+
+            padding: 15px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            color: #374151;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: #635bff;
+
+            font-weight: 700;
+        }
+
+        @media (max-width: 700px) {
+
+            .stats {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 450px) {
+
+            .counter {
+                padding: 22px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .counter h1 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a href="../index.html"
+           class="logo">
+
+            Tool<span>Nova</span>
+
+        </a>
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="tool-page">
+
+    <div class="container">
+
+        <div class="counter">
+
+            <h1>
+                Word Counter
+            </h1>
+
+            <p class="counter-intro">
+                Count words, characters, sentences,
+                paragraphs and reading time instantly.
+            </p>
+
+
+            <textarea
+                id="text"
+                placeholder="Type or paste your text here..."
+                spellcheck="true"></textarea>
+
+
+            <button
+                class="clear-btn"
+                onclick="clearText()">
+
+                Clear Text
+
+            </button>
+
+
+            <div class="stats">
+
+
+                <div class="stat">
+
+                    <strong id="words">
+                        0
+                    </strong>
+
+                    <span>
+                        Words
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong id="characters">
+                        0
+                    </strong>
+
+                    <span>
+                        Characters
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong id="sentences">
+                        0
+                    </strong>
+
+                    <span>
+                        Sentences
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong id="paragraphs">
+                        0
+                    </strong>
+
+                    <span>
+                        Paragraphs
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="reading-time">
+
+                Estimated reading time:
+
+                <strong id="readingTime">
+                    0 min
+                </strong>
+
+            </div>
+
+
+            <a
+                href="../index.html"
+                class="back">
+
+                ← Back to all tools
+
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script>
+
+
+const textArea =
+    document.getElementById("text");
+
+
+const words =
+    document.getElementById("words");
+
+
+const characters =
+    document.getElementById("characters");
+
+
+const sentences =
+    document.getElementById("sentences");
+
+
+const paragraphs =
+    document.getElementById("paragraphs");
+
+
+const readingTime =
+    document.getElementById("readingTime");
+
+
+
+textArea.addEventListener(
+    "input",
+    updateCounter
+);
+
+
+
+function updateCounter() {
+
+    const value =
+        textArea.value;
+
+
+    /*
+        CHARACTER COUNT
+    */
+
+    characters.textContent =
+        value.length;
+
+
+
+    /*
+        WORD COUNT
+    */
+
+    const wordArray =
+        value.trim()
+        ? value.trim().split(/\s+/)
+        : [];
+
+
+    words.textContent =
+        wordArray.length;
+
+
+
+    /*
+        SENTENCE COUNT
+    */
+
+    const sentenceArray =
+        value.match(
+            /[^.!?]+[.!?]+/g
+        ) || [];
+
+
+    sentences.textContent =
+        sentenceArray.length;
+
+
+
+    /*
+        PARAGRAPH COUNT
+    */
+
+    const paragraphArray =
+        value
+            .split(/\n\s*\n/)
+            .filter(
+                paragraph =>
+                paragraph.trim().length > 0
+            );
+
+
+    paragraphs.textContent =
+        paragraphArray.length;
+
+
+
+    /*
+        READING TIME
+
+        Average reading speed:
+        approximately 200 words/minute
+    */
+
+    const minutes =
+        Math.ceil(
+            wordArray.length / 200
+        );
+
+
+    if (wordArray.length === 0) {
+
+        readingTime.textContent =
+            "0 min";
+
+    }
+    else if (minutes === 1) {
+
+        readingTime.textContent =
+            "1 min";
+
+    }
+    else {
+
+        readingTime.textContent =
+            minutes + " min";
+
+    }
+
+}
+
+
+
+/*
+    CLEAR BUTTON
+*/
+
+function clearText() {
+
+    textArea.value = "";
+
+    updateCounter();
+
+    textArea.focus();
+
+}
+
+</script>
+
+
+</body>
+
+</html>

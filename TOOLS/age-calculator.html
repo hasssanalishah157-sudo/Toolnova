@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Calculate your exact age in years, months and days with ToolNova Age Calculator.">
+
+    <meta name="keywords"
+          content="age calculator, calculate age, date of birth calculator, exact age calculator">
+
+    <meta name="author"
+          content="ToolNova">
+
+    <title>Age Calculator - Calculate Your Exact Age | ToolNova</title>
+
+    <link rel="icon"
+          type="image/png"
+          href="../assets/favicon.png">
+
+    <link rel="stylesheet"
+          href="../style.css">
+
+    <style>
+
+        .calculator-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .calculator-box {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .calculator-box label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .calculator-box input {
+            width: 100%;
+            height: 52px;
+            padding: 0 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .calculator-box input:focus {
+            outline: none;
+            border-color: #635bff;
+            box-shadow: 0 0 0 4px rgba(99,91,255,0.10);
+        }
+
+        .calculate-btn {
+            width: 100%;
+            border: none;
+            background: #635bff;
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .calculate-btn:hover {
+            background: #5148e5;
+            transform: translateY(-2px);
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0efff;
+            border-radius: 12px;
+            text-align: center;
+            color: #111827;
+        }
+
+        .result strong {
+            display: block;
+            color: #635bff;
+            font-size: 25px;
+            margin-top: 8px;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #635bff;
+            font-weight: 700;
+        }
+
+        .related-tools {
+            padding: 70px 0;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .related-grid a {
+            padding: 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            background: white;
+            transition: 0.2s ease;
+        }
+
+        .related-grid a:hover {
+            color: #635bff;
+            border-color: #c9c5ff;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+
+            .calculator-box {
+                padding: 25px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a href="../index.html"
+           class="logo">
+
+            Tool<span>Nova</span>
+
+        </a>
+
+        <nav>
+
+            <a href="../index.html">Home</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<section class="calculator-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>TOOLNOVA TOOL</p>
+
+            <h2>Age Calculator</h2>
+
+            <span>
+                Calculate your exact age in years, months and days.
+            </span>
+
+        </div>
+
+
+        <div class="calculator-box">
+
+            <label for="birthDate">
+                Date of Birth
+            </label>
+
+            <input
+                type="date"
+                id="birthDate"
+                aria-label="Date of Birth"
+            >
+
+
+            <button
+                class="calculate-btn"
+                onclick="calculateAge()">
+
+                Calculate Age
+
+            </button>
+
+
+            <div
+                class="result"
+                id="result"
+                aria-live="polite">
+
+                Your age is:
+
+                <strong id="ageResult">
+                    0
+                </strong>
+
+            </div>
+
+
+            <a
+                href="../index.html"
+                class="back">
+
+                ← Back to all tools
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="related-tools">
+
+    <div class="container">
+
+        <h2>
+            Related Tools
+        </h2>
+
+
+        <div class="related-grid">
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="bmi-calculator.html">
+                BMI Calculator
+            </a>
+
+            <a href="word-counter.html">
+                Word Counter
+            </a>
+
+            <a href="qr-code-generator.html">
+                QR Code Generator
+            </a>
+
+            <a href="password-generator.html">
+                Password Generator
+            </a>
+
+            <a href="case-converter.html">
+                Case Converter
+            </a>
+
+            <a href="discount-calculator.html">
+                Discount Calculator
+            </a>
+
+            <a href="json-formatter.html">
+                JSON Formatter
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    <div class="container footer">
+
+        <div>
+
+            <h2>
+                ToolNova
+            </h2>
+
+            <p>
+                Free online tools for everyday tasks.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../pages/about.html">
+                About
+            </a>
+
+            <a href="../pages/contact.html">
+                Contact
+            </a>
+
+            <a href="../pages/privacy.html">
+                Privacy
+            </a>
+
+            <a href="../pages/terms.html">
+                Terms
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 ToolNova. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+function calculateAge() {
+
+    const birthInput =
+        document.getElementById("birthDate").value;
+
+
+    if (!birthInput) {
+
+        alert("Please select your date of birth.");
+
+        return;
+
+    }
+
+
+    const birthDate =
+        new Date(birthInput + "T00:00:00");
+
+
+    const today =
+        new Date();
+
+
+    if (birthDate > today) {
+
+        alert("Birth date cannot be in the future.");
+
+        return;
+
+    }
+
+
+    let years =
+        today.getFullYear() -
+        birthDate.getFullYear();
+
+
+    let months =
+        today.getMonth() -
+        birthDate.getMonth();
+
+
+    let days =
+        today.getDate() -
+        birthDate.getDate();
+
+
+    if (days < 0) {
+
+        months--;
+
+
+        const previousMonth =
+            new Date(
+                today.getFullYear(),
+                today.getMonth(),
+                0
+            );
+
+
+        days +=
+            previousMonth.getDate();
+
+    }
+
+
+    if (months < 0) {
+
+        years--;
+
+        months += 12;
+
+    }
+
+
+    document.getElementById("ageResult").textContent =
+        `${years} Years, ${months} Months, ${days} Days`;
+
+
+    document.getElementById("result").style.display =
+        "block";
+
+}
+
+</script>
+
+
+</body>
+</html>
+
