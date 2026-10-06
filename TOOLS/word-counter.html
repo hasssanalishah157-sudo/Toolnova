@@ -9,33 +9,20 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Free online word counter by ToolNova. Count words, characters, sentences, paragraphs and estimated reading time instantly.">
+          content="Free online word counter. Count words, characters, sentences, paragraphs and reading time instantly.">
 
-    <meta name="robots"
-          content="index, follow">
-
-    <title>Word Counter - Count Words & Characters Online | ToolNova</title>
-
-    <link rel="icon"
-          type="image/png"
-          href="../assets/favicon.png">
+    <title>Word Counter - ToolNova</title>
 
     <link rel="stylesheet"
           href="../style.css">
 
-
     <style>
-
-        /* ================= TOOL PAGE ================= */
 
         .tool-page {
             min-height: 75vh;
             padding: 70px 0;
             background: #f8fafc;
         }
-
-
-        /* ================= COUNTER ================= */
 
         .counter {
             max-width: 800px;
@@ -53,18 +40,15 @@
                 0 15px 40px rgba(0,0,0,0.06);
         }
 
-
         .counter h1 {
             font-size: 35px;
             margin-bottom: 10px;
         }
 
-
         .counter-intro {
             color: #6b7280;
             margin-bottom: 25px;
         }
-
 
         textarea {
             width: 100%;
@@ -86,10 +70,7 @@
             line-height: 1.6;
 
             outline: none;
-
-            box-sizing: border-box;
         }
-
 
         textarea:focus {
             border-color: #635bff;
@@ -97,9 +78,6 @@
             box-shadow:
                 0 0 0 3px rgba(99,91,255,0.10);
         }
-
-
-        /* ================= CLEAR BUTTON ================= */
 
         .clear-btn {
             margin-top: 15px;
@@ -119,13 +97,9 @@
             cursor: pointer;
         }
 
-
         .clear-btn:hover {
             background: #374151;
         }
-
-
-        /* ================= STATS ================= */
 
         .stats {
             display: grid;
@@ -138,7 +112,6 @@
             margin-top: 25px;
         }
 
-
         .stat {
             background: #f0efff;
 
@@ -148,7 +121,6 @@
 
             text-align: center;
         }
-
 
         .stat strong {
             display: block;
@@ -160,15 +132,11 @@
             margin-bottom: 4px;
         }
 
-
         .stat span {
             color: #555;
 
             font-size: 14px;
         }
-
-
-        /* ================= READING TIME ================= */
 
         .reading-time {
             margin-top: 20px;
@@ -186,9 +154,6 @@
             color: #374151;
         }
 
-
-        /* ================= BACK ================= */
-
         .back {
             display: inline-block;
 
@@ -197,181 +162,29 @@
             color: #635bff;
 
             font-weight: 700;
-
-            text-decoration: none;
         }
-
-
-        /* ================= SEO CONTENT ================= */
-
-        .seo-content {
-
-            max-width: 800px;
-
-            margin: 50px auto 0;
-
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 15px;
-
-            border: 1px solid #e5e7eb;
-        }
-
-
-        .seo-content h2 {
-
-            margin-bottom: 12px;
-        }
-
-
-        .seo-content p {
-
-            color: #555;
-
-            line-height: 1.7;
-
-            margin-bottom: 15px;
-        }
-
-
-        /* ================= RELATED TOOLS ================= */
-
-        .related-tools {
-
-            max-width: 800px;
-
-            margin: 30px auto 0;
-
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 15px;
-
-            border: 1px solid #e5e7eb;
-        }
-
-
-        .related-tools h2 {
-
-            margin-bottom: 20px;
-        }
-
-
-        .related-tools-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(180px, 1fr));
-
-            gap: 12px;
-        }
-
-
-        .related-tools a {
-
-            display: block;
-
-            padding: 12px 15px;
-
-            background: #f5f3ff;
-
-            color: #635bff;
-
-            text-decoration: none;
-
-            border-radius: 10px;
-
-            font-weight: 600;
-
-            transition: 0.2s;
-        }
-
-
-        .related-tools a:hover {
-
-            background: #635bff;
-
-            color: white;
-        }
-
-
-        /* ================= MOBILE ================= */
 
         @media (max-width: 700px) {
 
-            .tool-page {
-
-                padding: 40px 15px;
-
-            }
-
-
-            .counter {
-
-                padding: 25px 20px;
-
-            }
-
-
             .stats {
-
                 grid-template-columns:
                     repeat(2, 1fr);
-
-            }
-
-
-            .counter h1 {
-
-                font-size: 28px;
-
-            }
-
-
-            .seo-content,
-            .related-tools {
-
-                padding: 22px 18px;
-
             }
 
         }
-
 
         @media (max-width: 450px) {
 
             .counter {
-
-                padding: 22px 17px;
-
+                padding: 22px;
             }
-
 
             .stats {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-                gap: 10px;
-
+                grid-template-columns: 1fr 1fr;
             }
 
-
-            .stat {
-
-                padding: 15px 10px;
-
-            }
-
-
-            .stat strong {
-
-                font-size: 24px;
-
+            .counter h1 {
+                font-size: 28px;
             }
 
         }
@@ -384,8 +197,6 @@
 <body>
 
 
-<!-- ================= HEADER ================= -->
-
 <header class="header">
 
     <div class="container nav">
@@ -397,19 +208,10 @@
 
         </a>
 
-
         <nav>
 
-            <a href="../index.html#tools">
-                Tools
-            </a>
-
-            <a href="../pages/about.html">
-                About
-            </a>
-
-            <a href="../pages/contact.html">
-                Contact
+            <a href="../index.html">
+                Home
             </a>
 
         </nav>
@@ -420,21 +222,15 @@
 
 
 
-<!-- ================= MAIN ================= -->
-
 <main class="tool-page">
 
     <div class="container">
-
-
-        <!-- ================= WORD COUNTER ================= -->
 
         <div class="counter">
 
             <h1>
                 Word Counter
             </h1>
-
 
             <p class="counter-intro">
                 Count words, characters, sentences,
@@ -456,8 +252,6 @@
 
             </button>
 
-
-            <!-- ================= STATS ================= -->
 
             <div class="stats">
 
@@ -517,8 +311,6 @@
             </div>
 
 
-            <!-- ================= READING TIME ================= -->
-
             <div class="reading-time">
 
                 Estimated reading time:
@@ -530,10 +322,8 @@
             </div>
 
 
-            <!-- ================= BACK ================= -->
-
             <a
-                href="../index.html#tools"
+                href="../index.html"
                 class="back">
 
                 ← Back to all tools
@@ -542,116 +332,11 @@
 
         </div>
 
-
-
-        <!-- ================= SEO CONTENT ================= -->
-
-        <div class="seo-content">
-
-            <h2>
-                What is a Word Counter?
-            </h2>
-
-            <p>
-                A word counter is an online tool that counts the number
-                of words in a piece of text. ToolNova's free word counter
-                also counts characters, sentences, paragraphs and
-                estimated reading time.
-            </p>
-
-
-            <h2>
-                How to Use the Word Counter
-            </h2>
-
-            <p>
-                Type or paste your text into the text box above.
-                The word, character, sentence and paragraph counts
-                will update automatically as you type.
-            </p>
-
-
-            <h2>
-                Who Can Use a Word Counter?
-            </h2>
-
-            <p>
-                A word counter can be useful for students, writers,
-                bloggers, teachers, content creators and anyone who
-                needs to check the length of their text.
-            </p>
-
-
-            <h2>
-                Reading Time Calculator
-            </h2>
-
-            <p>
-                ToolNova also provides an estimated reading time based
-                on the number of words in your text. This can help
-                writers understand approximately how long their content
-                may take to read.
-            </p>
-
-        </div>
-
-
-
-        <!-- ================= RELATED TOOLS ================= -->
-
-        <div class="related-tools">
-
-            <h2>
-                Related Tools
-            </h2>
-
-
-            <div class="related-tools-grid">
-
-                <a href="percentage-calculator.html">
-                    Percentage Calculator
-                </a>
-
-                <a href="bmi-calculator.html">
-                    BMI Calculator
-                </a>
-
-                <a href="qr-code-generator.html">
-                    QR Code Generator
-                </a>
-
-                <a href="password-generator.html">
-                    Password Generator
-                </a>
-
-                <a href="age.html">
-                    Age Calculator
-                </a>
-
-                <a href="case-converter.html">
-                    Case Converter
-                </a>
-
-                <a href="discount.html">
-                    Discount Calculator
-                </a>
-
-                <a href="json-formatter.html">
-                    JSON Formatter
-                </a>
-
-            </div>
-
-        </div>
-
-
     </div>
 
 </main>
 
 
-
-<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
@@ -681,16 +366,12 @@ const readingTime =
 
 
 
-/* ================= INPUT EVENT ================= */
-
 textArea.addEventListener(
     "input",
     updateCounter
 );
 
 
-
-/* ================= UPDATE COUNTER ================= */
 
 function updateCounter() {
 
@@ -774,14 +455,12 @@ function updateCounter() {
             "0 min";
 
     }
-
     else if (minutes === 1) {
 
         readingTime.textContent =
             "1 min";
 
     }
-
     else {
 
         readingTime.textContent =
@@ -793,7 +472,9 @@ function updateCounter() {
 
 
 
-/* ================= CLEAR BUTTON ================= */
+/*
+    CLEAR BUTTON
+*/
 
 function clearText() {
 
@@ -804,7 +485,6 @@ function clearText() {
     textArea.focus();
 
 }
-
 
 </script>
 
